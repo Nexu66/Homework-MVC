@@ -7,26 +7,12 @@ class Controller {
   module::Module* m_processor;
 
  public:
-  std::string PromptUser() {
-    m_ui->PrintPrompt();
-    switch (m_ui->AskForChoise()) {
-      case view::Option::ENTER_SEQUENCE:
-        return m_ui->AskForSequence();
-        break;
-      case view::Option::QUIT:
-        std::cout << "Quitting...\n";
-        break;
-    }
-    return std::string{};
-  }
+  std::string PromptUser();
 
-  int ProcessSequence(std::string sequence) {
-    return m_processor->ProcessSequence(sequence);
-  }
+  int ProcessSequence(std::string sequence);
 
-  void UpdateUI(int result) { m_ui->PrintResult(result); }
+  void UpdateUI(int result);
 
-  Controller(view::View* ui, module::Module* processor)
-      : m_ui{ui}, m_processor{processor} {}
+  Controller(view::View* ui, module::Module* processor);
 };
 }  // namespace controller

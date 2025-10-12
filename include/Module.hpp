@@ -4,17 +4,9 @@
 
 namespace module {
 class Module {
-  int result;
+  int m_result;
 
  public:
-  int ProcessSequence(std::string sequence) {
-    result = 0;
-    std::istringstream parser{sequence};
-    int element = 0;
-    while (parser >> element) {
-      result += element;
-    }
-    return result;
-  }
+  int ProcessSequence(std::string sequence);
 };
 }  // namespace module

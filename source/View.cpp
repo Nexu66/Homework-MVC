@@ -12,22 +12,23 @@ void View::PrintResult(int result) {
 
 Option View::AskForChoise() {
   while (true) {
-    std::cerr<<"Enter your option: ";
+    std::cerr << "Enter your option: ";
     int choise = std::cin.peek();
-    if(choise == '1' || choise == '2'){
-    std::cin >> choise;
-    switch (choise) {
-      case Option::ENTER_SEQUENCE:
-        return Option::ENTER_SEQUENCE;
-        break;
-      case Option::QUIT:
-        return Option::QUIT;
-      default:
-        return Option::ENTER_SEQUENCE;
-        break;
+    if (choise == '1' || choise == '2') {
+      std::cin >> choise;
+      switch (choise) {
+        case Option::ENTER_SEQUENCE:
+          return Option::ENTER_SEQUENCE;
+          break;
+        case Option::QUIT:
+          return Option::QUIT;
+        default:
+          return Option::ENTER_SEQUENCE;
+          break;
+      }
     }
-    }
-    std::cerr<<"\nInvalid option, please try again\n";
+    std::cerr << "\nInvalid option, please try again\n";
+
     std::cin.ignore(2, '\n');
   }
 }
