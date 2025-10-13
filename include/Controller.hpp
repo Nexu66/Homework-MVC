@@ -7,11 +7,9 @@ class Controller {
   module::Module* m_processor;
 
  public:
-  std::string PromptUser();
+  void PromptUser();
 
-  int ProcessSequence(std::string sequence);
-
-  void UpdateUI(int result);
+  void UpdateUI();
 
   Controller(view::View* ui, module::Module* processor);
 };

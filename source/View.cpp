@@ -3,7 +3,7 @@
 namespace view {
 
 void View::PrintPrompt() {
-  std::cout << "1. Enter sequence of int's\n2. Quit\n";
+  std::cout << "1. Enter sequence of int's to add up\n2. Quit\n";
 }
 
 void View::PrintResult(int result) {
@@ -13,23 +13,19 @@ void View::PrintResult(int result) {
 Option View::AskForChoise() {
   while (true) {
     std::cerr << "Enter your option: ";
-    int choise = std::cin.peek();
-    if (choise == '1' || choise == '2') {
-      std::cin >> choise;
-      switch (choise) {
+    std::string choise;
+    std::cin >> choise;
+    if ((choise[0] == '1' || choise[0] == '2') && choise.size() == 1) {
+      switch (choise[0]) {
         case Option::ENTER_SEQUENCE:
           return Option::ENTER_SEQUENCE;
           break;
         case Option::QUIT:
           return Option::QUIT;
-        default:
-          return Option::ENTER_SEQUENCE;
-          break;
       }
     }
     std::cerr << "\nInvalid option, please try again\n";
-
-    std::cin.ignore(2, '\n');
+    choise.clear();
   }
 }
 

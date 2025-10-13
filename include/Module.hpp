@@ -8,5 +8,6 @@ class Module {
 
  public:
   int ProcessSequence(std::string sequence);
+  int GetStoredResult();
 };
 }  // namespace module

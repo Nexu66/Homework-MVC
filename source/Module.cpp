@@ -10,4 +10,5 @@ int Module::ProcessSequence(std::string sequence) {
   }
   return m_result;
 }
+int Module::GetStoredResult() { return m_result; }
 }  // namespace module
