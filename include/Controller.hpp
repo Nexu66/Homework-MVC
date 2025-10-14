@@ -4,7 +4,7 @@
 #include "CLIUserInterface.hpp"
 #include "SummarizeSequence.hpp"
 namespace controller {
-namespace impl{
+namespace impl {
 class ControllerImpl;
 }
 class Controller {

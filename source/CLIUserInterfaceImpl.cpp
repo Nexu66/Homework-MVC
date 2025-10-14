@@ -1,16 +1,18 @@
+#include "impl/CLIUserInterfaceImpl.hpp"
+
 #include "CLIUserInterface.hpp"
 
-namespace view {
+namespace view::impl {
 
-void CLIUserInterface::PrintPrompt() const noexcept {
+void CLIUserInterfaceImpl::PrintPrompt() const noexcept {
   std::cout << "1. Enter sequence of int's to add up\n2. Quit\n";
 }
 
-void CLIUserInterface::PrintResult(int result) const noexcept {
+void CLIUserInterfaceImpl::PrintResult(int result) const noexcept {
   std::cout << "Our result is: " << result << "\n";
 }
 
-Option CLIUserInterface::AskForChoise() const noexcept {
+char CLIUserInterfaceImpl::AskForChoise() const noexcept {
   while (true) {
     std::cerr << "Enter your option: ";
     std::string choise;
@@ -29,7 +31,7 @@ Option CLIUserInterface::AskForChoise() const noexcept {
   }
 }
 
-std::string CLIUserInterface::AskForSequence() const noexcept {
+std::string CLIUserInterfaceImpl::AskForSequence() const noexcept {
   std::cin.ignore();
   std::cout << "Please, enter your sequence: ";
   std::string sequence;
@@ -37,4 +39,21 @@ std::string CLIUserInterface::AskForSequence() const noexcept {
   return sequence;
 }
 
+}  // namespace view::impl
+
+namespace view {
+CLIUserInterface::CLIUserInterface() {}
+CLIUserInterface::~CLIUserInterface() {}
+char CLIUserInterface::AskForChoise() const noexcept {
+  return this->impl->AskForChoise();
+}
+std::string CLIUserInterface::AskForSequence() const noexcept {
+  return this->impl->AskForSequence();
+}
+void CLIUserInterface::PrintPrompt() const noexcept {
+  this->impl->PrintPrompt();
+}
+void CLIUserInterface::PrintResult(int result) const noexcept {
+  this->impl->PrintResult(result);
+}
 }  // namespace view

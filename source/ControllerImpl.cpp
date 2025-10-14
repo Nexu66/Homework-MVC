@@ -1,14 +1,15 @@
-#include "ControllerImpl.hpp"
+#include "impl/ControllerImpl.hpp"
 
+#include "impl/CLIUserInterfaceImpl.hpp"
 #include "Controller.hpp"
 namespace controller::impl {
 void ControllerImpl::PromptUser() const {
   m_ui->PrintPrompt();
   switch (m_ui->AskForChoise()) {
-    case view::Option::ENTER_SEQUENCE:
+    case view::impl::Option::ENTER_SEQUENCE:
       m_processor->ProcessSequence(m_ui->AskForSequence());
       break;
-    case view::Option::QUIT:
+    case view::impl::Option::QUIT:
       std::cout << "Quitting...\n";
       return;
       break;
