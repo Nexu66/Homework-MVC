@@ -10,3 +10,4 @@ FORMAT_DIR(${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/source)
 
 
 add_subdirectory(source)
+# add_subdirectory(test)

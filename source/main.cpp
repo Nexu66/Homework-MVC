@@ -3,7 +3,8 @@
 #include "Controller.hpp"
 
 int main() {
-  controller::Controller c{new view::View{}, new module::Module{}};
+  controller::Controller c{new view::CLIUserInterface{},
+                           new module::SummarizeSuquence{}};
 
   c.PromptUser();
   c.UpdateUI();

@@ -1,7 +1,7 @@
-#include "Module.hpp"
+#include "SummarizeSequence.hpp"
 namespace module {
 
-int Module::ProcessSequence(std::string sequence) {
+int SummarizeSuquence::ProcessSequence(std::string sequence) {
   m_result = 0;
   std::istringstream parser{sequence};
   int element = 0;
@@ -10,5 +10,5 @@ int Module::ProcessSequence(std::string sequence) {
   }
   return m_result;
 }
-int Module::GetStoredResult() { return m_result; }
+int SummarizeSuquence::GetStoredResult() const noexcept { return m_result; }
 }  // namespace module

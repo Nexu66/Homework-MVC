@@ -1,16 +1,16 @@
-#include "View.hpp"
+#include "CLIUserInterface.hpp"
 
 namespace view {
 
-void View::PrintPrompt() {
+void CLIUserInterface::PrintPrompt() const noexcept {
   std::cout << "1. Enter sequence of int's to add up\n2. Quit\n";
 }
 
-void View::PrintResult(int result) {
+void CLIUserInterface::PrintResult(int result) const noexcept {
   std::cout << "Our result is: " << result << "\n";
 }
 
-Option View::AskForChoise() {
+Option CLIUserInterface::AskForChoise() const noexcept {
   while (true) {
     std::cerr << "Enter your option: ";
     std::string choise;
@@ -29,7 +29,7 @@ Option View::AskForChoise() {
   }
 }
 
-std::string View::AskForSequence() {
+std::string CLIUserInterface::AskForSequence() const noexcept {
   std::cin.ignore();
   std::cout << "Please, enter your sequence: ";
   std::string sequence;

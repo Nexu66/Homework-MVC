@@ -1,15 +1,15 @@
 #pragma once
-#include "Module.hpp"
-#include "View.hpp"
+#include "CLIUserInterface.hpp"
+#include "SummarizeSequence.hpp"
 namespace controller {
 class Controller {
   view::View* m_ui;
   module::Module* m_processor;
 
  public:
-  void PromptUser();
+  void PromptUser() const;
 
-  void UpdateUI();
+  void UpdateUI() const;
 
   Controller(view::View* ui, module::Module* processor);
 };

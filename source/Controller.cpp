@@ -1,6 +1,6 @@
 #include "Controller.hpp"
 namespace controller {
-void Controller::PromptUser() {
+void Controller::PromptUser() const {
   m_ui->PrintPrompt();
   switch (m_ui->AskForChoise()) {
     case view::Option::ENTER_SEQUENCE:
@@ -13,7 +13,7 @@ void Controller::PromptUser() {
   }
 }
 
-void Controller::UpdateUI() {
+void Controller::UpdateUI() const{
   m_ui->PrintResult(m_processor->GetStoredResult());
 }
 
