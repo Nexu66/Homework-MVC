@@ -4,7 +4,7 @@
 
 int main() {
   controller::Controller c{new view::CLIUserInterface{},
-                           new module::SummarizeSuquence{}};
+                           new module::SummarizeSequence{}};
 
   c.PromptUser();
   c.UpdateUI();

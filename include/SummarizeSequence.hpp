@@ -1,20 +1,26 @@
 #pragma once
+#include <memory>
+
 #include "interfaces/Module.hpp"
 
 namespace module {
-class SummarizeSuquence : public Module {
+namespace impl {
+class SummarizeSequenceImpl;
+}  // namespace impl
+
+class SummarizeSequence : public Module {
  private:
-  int m_result;
+  std::unique_ptr<impl::SummarizeSequenceImpl> m_impl;
   int ProcessSequence(std::string sequence);
   int GetStoredResult() const noexcept override;
 
  public:
-  SummarizeSuquence() = default;
-  ~SummarizeSuquence() = default;
-  SummarizeSuquence(const SummarizeSuquence& other) = delete;
-  SummarizeSuquence(SummarizeSuquence&& other) = delete;
-  SummarizeSuquence& operator=(const SummarizeSuquence& other) = delete;
-  SummarizeSuquence& operator=(SummarizeSuquence&& other) = delete;
+  SummarizeSequence();
+  ~SummarizeSequence();
+  SummarizeSequence(const SummarizeSequence& other) = delete;
+  SummarizeSequence(SummarizeSequence&& other) = delete;
+  SummarizeSequence& operator=(const SummarizeSequence& other) = delete;
+  SummarizeSequence& operator=(SummarizeSequence&& other) = delete;
 
   friend class Controller;
 };

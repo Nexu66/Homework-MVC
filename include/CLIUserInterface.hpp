@@ -10,7 +10,7 @@ class CLIUserInterfaceImpl;
 
 class CLIUserInterface : public View {
  private:
-  std::unique_ptr<impl::CLIUserInterfaceImpl> impl;
+  std::unique_ptr<impl::CLIUserInterfaceImpl> m_impl;
 
   char AskForChoise() const noexcept override;
   std::string AskForSequence() const noexcept override;

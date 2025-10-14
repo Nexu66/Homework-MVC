@@ -8,7 +8,7 @@ namespace impl {
 class ControllerImpl;
 }
 class Controller {
-  std::unique_ptr<impl::ControllerImpl> impl;
+  std::unique_ptr<impl::ControllerImpl> m_impl;
 
  public:
   void PromptUser() const;

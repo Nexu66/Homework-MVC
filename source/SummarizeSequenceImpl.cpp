@@ -1,7 +1,9 @@
-#include "SummarizeSequence.hpp"
-namespace module {
+#include "impl/SummarizeSequenceImpl.hpp"
 
-int SummarizeSuquence::ProcessSequence(std::string sequence) {
+#include "SummarizeSequence.hpp"
+namespace module::impl {
+
+int SummarizeSequenceImpl::ProcessSequence(std::string sequence) {
   m_result = 0;
   std::istringstream parser{sequence};
   int element = 0;
@@ -10,5 +12,17 @@ int SummarizeSuquence::ProcessSequence(std::string sequence) {
   }
   return m_result;
 }
-int SummarizeSuquence::GetStoredResult() const noexcept { return m_result; }
+int SummarizeSequenceImpl::GetStoredResult() const noexcept { return m_result; }
+}  // namespace module::impl
+
+namespace module {
+SummarizeSequence::SummarizeSequence()
+    : m_impl{std::make_unique<impl::SummarizeSequenceImpl>()} {}
+SummarizeSequence::~SummarizeSequence() {}
+int SummarizeSequence::ProcessSequence(std::string sequence) {
+  return this->m_impl->ProcessSequence(std::move(sequence));
+}
+int SummarizeSequence::GetStoredResult() const noexcept {
+  return this->m_impl->GetStoredResult();
+}
 }  // namespace module

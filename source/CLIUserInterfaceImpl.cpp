@@ -42,18 +42,19 @@ std::string CLIUserInterfaceImpl::AskForSequence() const noexcept {
 }  // namespace view::impl
 
 namespace view {
-CLIUserInterface::CLIUserInterface() {}
+CLIUserInterface::CLIUserInterface()
+    : m_impl{std::make_unique<impl::CLIUserInterfaceImpl>()} {}
 CLIUserInterface::~CLIUserInterface() {}
 char CLIUserInterface::AskForChoise() const noexcept {
-  return this->impl->AskForChoise();
+  return this->m_impl->AskForChoise();
 }
 std::string CLIUserInterface::AskForSequence() const noexcept {
-  return this->impl->AskForSequence();
+  return this->m_impl->AskForSequence();
 }
 void CLIUserInterface::PrintPrompt() const noexcept {
-  this->impl->PrintPrompt();
+  this->m_impl->PrintPrompt();
 }
 void CLIUserInterface::PrintResult(int result) const noexcept {
-  this->impl->PrintResult(result);
+  this->m_impl->PrintResult(result);
 }
 }  // namespace view

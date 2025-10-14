@@ -1,3 +1,4 @@
+#pragma once
 #include "interfaces/Module.hpp"
 #include "interfaces/View.hpp"
 namespace controller::impl {

@@ -1,7 +1,7 @@
 #include "impl/ControllerImpl.hpp"
 
-#include "impl/CLIUserInterfaceImpl.hpp"
 #include "Controller.hpp"
+#include "impl/CLIUserInterfaceImpl.hpp"
 namespace controller::impl {
 void ControllerImpl::PromptUser() const {
   m_ui->PrintPrompt();
@@ -26,10 +26,10 @@ ControllerImpl::ControllerImpl(view::View* ui, module::Module* processor)
 
 namespace controller {
 Controller::Controller(view::View* ui, module::Module* processor)
-    : impl{std::make_unique<impl::ControllerImpl>(ui, processor)} {}
+    : m_impl{std::make_unique<impl::ControllerImpl>(ui, processor)} {}
 Controller::~Controller() {}
 
-void Controller::PromptUser() const { this->impl->PromptUser(); }
+void Controller::PromptUser() const { this->m_impl->PromptUser(); }
 
-void Controller::UpdateUI() const { this->impl->UpdateUI(); }
+void Controller::UpdateUI() const { this->m_impl->UpdateUI(); }
 }  // namespace controller
