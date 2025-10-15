@@ -8,6 +8,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_executable(tests ViewTest.cpp ModuleTest.cpp ControllerTest.cpp)
+add_executable(tests CLIUserInterfaceTest.cpp SummarizeSequenceTest.cpp ControllerTest.cpp)
 target_link_libraries(tests PRIVATE GTest::gmock GTest::gtest_main implementation)
 target_include_directories(tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+add_test(test ${CMAKE_BINARY_DIR}/test/tests)
