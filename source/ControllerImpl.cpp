@@ -25,7 +25,13 @@ void ControllerImpl::UpdateUI() const {
 
 ControllerImpl::ControllerImpl(view::View* ui, module::Module* processor)
     : m_ui{ui}, m_processor{processor} {}
+
+ControllerImpl::~ControllerImpl(){
+  delete m_ui;
+  delete m_processor;
+}
 }  // namespace controller::impl
+
 
 namespace controller {
 Controller::Controller(view::View* ui, module::Module* processor)

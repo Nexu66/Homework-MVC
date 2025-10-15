@@ -11,5 +11,6 @@ class ControllerImpl {
   void UpdateUI() const;
 
   ControllerImpl(view::View* ui, module::Module* processor);
+  ~ControllerImpl();
 };
 }  // namespace controller::impl
