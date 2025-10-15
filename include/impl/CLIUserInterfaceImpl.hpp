@@ -2,7 +2,7 @@
 #include <string>
 namespace view::impl {
 
-enum Option { ENTER_SEQUENCE = '1', QUIT = '2' };
+enum Option { INVALID = '0', ENTER_SEQUENCE = '1', QUIT = '2' };
 class CLIUserInterfaceImpl {
  public:
   char AskForChoise() const noexcept;

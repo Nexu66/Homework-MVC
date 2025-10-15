@@ -13,22 +13,17 @@ void CLIUserInterfaceImpl::PrintResult(int result) const noexcept {
 }
 
 char CLIUserInterfaceImpl::AskForChoise() const noexcept {
-  while (true) {
-    std::cerr << "Enter your option: ";
-    std::string choise;
-    std::cin >> choise;
-    if ((choise[0] == '1' || choise[0] == '2') && choise.size() == 1) {
-      switch (choise[0]) {
-        case Option::ENTER_SEQUENCE:
-          return Option::ENTER_SEQUENCE;
-          break;
-        case Option::QUIT:
-          return Option::QUIT;
-      }
-    }
-    std::cerr << "\nInvalid option, please try again\n";
-    choise.clear();
+  std::cerr << "Enter your option: ";
+  char choise;
+  std::cin >> choise;
+  switch (choise) {
+    case Option::ENTER_SEQUENCE:
+      return Option::ENTER_SEQUENCE;
+      break;
+    case Option::QUIT:
+      return Option::QUIT;
   }
+  return Option::INVALID;
 }
 
 std::string CLIUserInterfaceImpl::AskForSequence() const noexcept {

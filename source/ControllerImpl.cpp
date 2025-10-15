@@ -13,6 +13,10 @@ void ControllerImpl::PromptUser() const {
       std::cout << "Quitting...\n";
       return;
       break;
+    case view::impl::Option::INVALID:
+      std::cerr << "Invalid option, please try again\n";
+      return;
+      break;
   }
 }
 
