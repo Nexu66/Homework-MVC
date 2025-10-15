@@ -44,3 +44,13 @@ TEST_F(ControllerTest, PromptUserEnterSequence){
     ControllerImpl object{ui, processor};
     object.PromptUser();
 }
+TEST_F(ControllerTest, UpdateUI){
+    InSequence sequence;
+    int stored_result = 100;
+    EXPECT_CALL(*processor, GetStoredResult())
+    .WillOnce(Return(stored_result));
+    EXPECT_CALL(*ui, PrintResult(stored_result));
+
+    ControllerImpl object{ui, processor};
+    object.UpdateUI();
+}
