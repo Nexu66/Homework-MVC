@@ -14,4 +14,4 @@ target_link_libraries(tests PRIVATE GTest::gmock GTest::gtest_main implementatio
 target_include_directories(tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 include(GoogleTest)
-
+gtest_discover_tests(tests)
