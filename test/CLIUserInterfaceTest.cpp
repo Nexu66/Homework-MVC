@@ -27,17 +27,23 @@ TEST(CLIUserInterfaceImpl, PrintResult){
 TEST(CLIUserInterfaceImpl, AskForChoise){
     CLIUserInterfaceImpl object;
 
-    testing::internal::CaptureStderr();
-
     std::stringstream buff;
     std::streambuf* origiral_buff = std::cin.rdbuf(buff.rdbuf());
 
-    buff<<"3\n2\n1";
+    buff<<"3\n2\n1\n";
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::INVALID);
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::QUIT);
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::ENTER_SEQUENCE);
 
-    EXPECT_EQ(testing::internal::GetCapturedStderr(),"Enter your option: Enter your option: Enter your option: ");
+    std::cin.rdbuf(origiral_buff);
+}
+TEST(CLIUserInterfaceImpl, AskForSequence){
+    CLIUserInterfaceImpl object;
+
+    std::stringstream buff;
+    std::streambuf* origiral_buff = std::cin.rdbuf(buff.rdbuf());
+    buff<<"\n1 2 3 -4 5\n"; 
+    EXPECT_EQ(object.AskForSequence(), "1 2 3 -4 5");
 
     std::cin.rdbuf(origiral_buff);
 }
