@@ -6,7 +6,7 @@ namespace module::impl {
 class SummarizeSequenceImpl {
  public:
   int m_result;
-  int ProcessSequence(std::string sequence);
+  void ProcessSequence(std::string sequence);
   int GetStoredResult() const noexcept;
 };
 }  // namespace module::impl

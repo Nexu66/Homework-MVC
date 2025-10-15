@@ -11,7 +11,7 @@ class SummarizeSequenceImpl;
 class SummarizeSequence : public Module {
  private:
   std::unique_ptr<impl::SummarizeSequenceImpl> m_impl;
-  int ProcessSequence(std::string sequence);
+  void ProcessSequence(std::string sequence);
   int GetStoredResult() const noexcept override;
 
  public:

@@ -6,9 +6,10 @@ using namespace module::impl;
 
 TEST(SummarizeSequenceImpl, ProcessSequence){
    SummarizeSequenceImpl object; 
-
-   EXPECT_EQ(object.ProcessSequence("1 2 3 4 5"), 15);
-   EXPECT_EQ(object.ProcessSequence("1 -2 3 -4 5"), 3);
+   object.ProcessSequence("1 2 3 4 5");
+   EXPECT_EQ(15, object.m_result);
+   object.ProcessSequence("1 -2 3 -4 5");
+   EXPECT_EQ(3, object.m_result);
 }
 TEST(SummarizeSequenceImpl, GetStoredResult){
    SummarizeSequenceImpl object;
