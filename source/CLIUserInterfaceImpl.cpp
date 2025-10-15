@@ -14,14 +14,16 @@ void CLIUserInterfaceImpl::PrintResult(int result) const noexcept {
 
 char CLIUserInterfaceImpl::AskForChoise() const noexcept {
   std::cerr << "Enter your option: ";
-  char choise;
+  std::string choise;
   std::cin >> choise;
-  switch (choise) {
-    case Option::ENTER_SEQUENCE:
-      return Option::ENTER_SEQUENCE;
-      break;
-    case Option::QUIT:
-      return Option::QUIT;
+  if (choise.size() == 1) {
+    switch (choise[0]) {
+      case Option::ENTER_SEQUENCE:
+        return Option::ENTER_SEQUENCE;
+        break;
+      case Option::QUIT:
+        return Option::QUIT;
+    }
   }
   return Option::INVALID;
 }

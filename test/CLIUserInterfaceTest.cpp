@@ -30,9 +30,9 @@ TEST(CLIUserInterfaceImpl, AskForChoise){
     testing::internal::CaptureStderr();
 
     std::stringstream buff;
-    buff<<'3';
     std::streambuf* origiral_buff = std::cin.rdbuf(buff.rdbuf());
-
+    
+    buff<<'3';
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::INVALID);
     
     buff<<'2';

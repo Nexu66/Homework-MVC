@@ -5,18 +5,17 @@
 namespace controller::impl {
 void ControllerImpl::PromptUser() const {
   m_ui->PrintPrompt();
-  switch (m_ui->AskForChoise()) {
-    case view::impl::Option::ENTER_SEQUENCE:
-      m_processor->ProcessSequence(m_ui->AskForSequence());
-      break;
-    case view::impl::Option::QUIT:
-      std::cout << "Quitting...\n";
-      return;
-      break;
-    case view::impl::Option::INVALID:
-      std::cerr << "Invalid option, please try again\n";
-      return;
-      break;
+  while (true) {
+    switch (m_ui->AskForChoise()) {
+      case view::impl::Option::ENTER_SEQUENCE:
+        m_processor->ProcessSequence(m_ui->AskForSequence());
+        return;
+      case view::impl::Option::QUIT:
+        std::cout << "Quitting...\n";
+        return;
+      case view::impl::Option::INVALID:
+        std::cerr << "Invalid option, please try again\n";
+    }
   }
 }
 
