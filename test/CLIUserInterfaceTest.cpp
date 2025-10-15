@@ -31,14 +31,10 @@ TEST(CLIUserInterfaceImpl, AskForChoise){
 
     std::stringstream buff;
     std::streambuf* origiral_buff = std::cin.rdbuf(buff.rdbuf());
-    
-    buff<<'3';
+
+    buff<<"3\n2\n1";
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::INVALID);
-    
-    buff<<'2';
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::QUIT);
-    
-    buff<<'1';
     EXPECT_EQ(object.AskForChoise(), view::impl::Option::ENTER_SEQUENCE);
 
     EXPECT_EQ(testing::internal::GetCapturedStderr(),"Enter your option: Enter your option: Enter your option: ");
